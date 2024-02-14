@@ -1,0 +1,1033 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name KepolSdk
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreBluetooth
+import Foundation
+import QuartzCore
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os
+@objc public class StatusPickupCodeResponseModel : ObjectiveC.NSObject {
+  public init(hardwareId: Swift.String, type: MessageType, result: [GetPickupCodeStatusBoxModel])
+  @objc public var Result: [GetPickupCodeStatusBoxModel] {
+    @objc get
+  }
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var MessageType: MessageType {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class GetPickupCodeStatusBoxModel : ObjectiveC.NSObject {
+  public init(boxNumber: Swift.Int32, result: Swift.String)
+  @objc public var BoxNumber: Swift.Int32 {
+    @objc get
+  }
+  @objc public var Result: GetPickupCodeStatusBoxModel.PickupCodeStatus {
+    @objc get
+  }
+  @objc public enum PickupCodeStatus : Swift.Int32, Swift.RawRepresentable, Swift.CaseIterable {
+    case CLEAR
+    case SET
+    case USED
+    case PICKED_UP
+    case PICKUP_FAILED
+    case ERROR
+    case NONE
+    public typealias RawValue = Swift.String
+    public var rawValue: GetPickupCodeStatusBoxModel.PickupCodeStatus.RawValue {
+      get
+    }
+    public init?(rawValue: GetPickupCodeStatusBoxModel.PickupCodeStatus.RawValue)
+    public typealias AllCases = [GetPickupCodeStatusBoxModel.PickupCodeStatus]
+    public static var allCases: [GetPickupCodeStatusBoxModel.PickupCodeStatus] {
+      get
+    }
+  }
+  @objc deinit
+}
+@objc public class FeedbackModel : ObjectiveC.NSObject {
+  public init(result: Swift.Int)
+  @objc public var Result: Swift.Int {
+    @objc get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class VersionInfoModel : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  public init(hardwareId: Swift.String, type: Swift.String, module: Swift.Int32, moduleName: Swift.String, bootloaderVersion: Swift.String, firmwareVersion: Swift.String)
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var ResponseType: Swift.String {
+    @objc get
+  }
+  @objc public var Module: Swift.Int32 {
+    @objc get
+  }
+  @objc public var ModuleName: Swift.String {
+    @objc get
+  }
+  @objc public var BootloaderVersion: Swift.String {
+    @objc get
+  }
+  @objc public var FirmwareVersion: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public enum MessageType : Swift.Int32, Swift.RawRepresentable {
+  case Unknown
+  case InitSessionResponse
+  case OpenCompartmentsResponse
+  case BoxStatusChangedResponse
+  case VersionInfoResponse
+  case LogFilesInfoResponse
+  case LogFileContentResponse
+  case BoxesStatusInfoResponse
+  case LogFileInfoResponse
+  case SetPublicKeyResponse
+  case LockerStatusInfoResponse
+  case LogLevelSetResponse
+  case VersionInfosResponse
+  case SetPickupCodeResponse
+  case ClearPickupCodeResponse
+  case GetPickupCodeStatusResponse
+  public typealias RawValue = Swift.String
+  public var rawValue: MessageType.RawValue {
+    get
+  }
+  public init(rawValue: MessageType.RawValue)
+}
+@objc public class LockerPropertyModel : ObjectiveC.NSObject {
+  public init(id: Swift.String, value: Swift.String, valueType: Swift.Int32, status: Swift.String, unit: Swift.String, lastUpdated: Swift.String, group: Swift.String, order: Swift.Int32)
+  @objc public var Id: Swift.String {
+    @objc get
+  }
+  @objc public var Value: Swift.String {
+    @objc get
+  }
+  @objc public var ValueType: LockerPropertyModel.LockerPropertyType {
+    @objc get
+  }
+  @objc public var Status: LockerPropertyModel.LockerPropertyStatus {
+    @objc get
+  }
+  @objc public var Unit: Swift.String {
+    @objc get
+  }
+  @objc public var LastUpdated: Swift.String {
+    @objc get
+  }
+  @objc public var Group: Swift.String {
+    @objc get
+  }
+  @objc public var Order: Swift.Int32 {
+    @objc get
+  }
+  @objc public enum LockerPropertyType : Swift.Int32, Swift.RawRepresentable {
+    case BOOLEAN
+    case NUMERIC
+    case STRING
+    public typealias RawValue = Swift.Int32
+    public var rawValue: LockerPropertyModel.LockerPropertyType.RawValue {
+      get
+    }
+    public init?(rawValue: LockerPropertyModel.LockerPropertyType.RawValue)
+  }
+  @objc public enum LockerPropertyStatus : Swift.Int32, Swift.RawRepresentable {
+    case NEUTRAL
+    case OK
+    case WARNING
+    case ERROR
+    public typealias RawValue = Swift.String
+    public var rawValue: LockerPropertyModel.LockerPropertyStatus.RawValue {
+      get
+    }
+    public init?(rawValue: LockerPropertyModel.LockerPropertyStatus.RawValue)
+  }
+  @objc deinit
+}
+@objc(IKepolApi) public protocol IKepolAPI : IKepolCommonApi {
+  @objc func SetPickupCodes(_ pickupCodes: [SetPickupCodeModel]) -> (Swift.Bool)
+  @objc func ClearPickupCodes(_ boxNumbers: [Swift.Int32]) -> (Swift.Bool)
+  @objc func ClearAllPickupCodes() -> (Swift.Bool)
+  @objc func GetPickupCodeStatus(_ boxNumbers: [Swift.Int32]) -> (Swift.Bool)
+  @objc func GetPickupCodeStatus(_ boxNumbers: [Swift.Int32], _ filter: GetPickupCodeStatusBoxModel.PickupCodeStatus) -> (Swift.Bool)
+  @objc var OnSetPickupCodesSuccess: ((_ result: SetPickupCodeResponseModel) -> ())? { get set }
+  @objc var OnSetPickupCodesFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnClearPickupCodesSuccess: ((_ result: ClearPickupCodeResponseModel) -> ())? { get set }
+  @objc var OnClearPickupCodesFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnGetPickupCodesStatusSuccess: ((_ result: StatusPickupCodeResponseModel) -> ())? { get set }
+  @objc var OnGetPickupCodesStatusFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+}
+@_inheritsConvenienceInitializers @objc public class KepolAppErrorCode : ObjectiveC.NSObject {
+  @objc public enum ErrorCode : Swift.Int32, Swift.RawRepresentable {
+    case FAILED
+    case PRODUCT_CODE_UNKNOWN
+    case LOCKER_UNKNOWN
+    case STAMP_TYPE_MISSING
+    case ANNOUNCEMENT_NOT_FOUND
+    case FAILED_TO_MAP_BOX
+    case FAILED_TO_MAP_PARCEL
+    case FAILED_TO_MAP_ANNOUNCEMENT
+    case FAILED_TO_MAP_LABEL
+    case PARCEL_NOT_FOUND
+    case IDENTCODE_ALREADY_USED
+    case LOCKER_IS_FULL
+    case BOXCOMMAND_REJECTED
+    case WRONG_MACHINE
+    case LOGISTICIAN_UNKNOWN
+    case MISSING_INPUT_PARAMETER
+    case PARCEL_STOPPED
+    case PARCEL_REDIRECTED
+    case PARCEL_PICKED_UP_BY_DELIVERY
+    case PICKUP_REJECTED
+    case USER_UNKNOWN
+    case BOX_SOILED_REJECTED
+    case BOX_DEFECT_REJECTED
+    case INTERNAL_ERROR
+    case NONE
+    public typealias RawValue = Swift.String
+    public var rawValue: KepolAppErrorCode.ErrorCode.RawValue {
+      get
+    }
+    public init?(rawValue: KepolAppErrorCode.ErrorCode.RawValue)
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(KepolSdk) public class KepolSdk : ObjectiveC.NSObject, IKepolServiceAPI, IKepolDeliveryPickupAPI, IKepolAPI {
+  @objc override dynamic public init()
+  @objc public var OnKepolLockerSearchFound: ((_ data: [KepolLockerModel]) -> ())?
+  @objc public var OnBoxesStatusReceived: ((_ boxStatusModel: [BoxStatusModel], _ boxStatusChangedOnLocker: Swift.Bool) -> ())?
+  @objc public var OnBoxesStatusFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnConnectionEstablished: ((_ sessionId: Swift.String) -> ())?
+  @objc public var OnConnectionClosed: ((_ data: Swift.Int) -> ())?
+  @objc public var OnConnectionClosedFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnConnectionEstablishedFailed: ((_ data: ProblemDetails) -> ())?
+  @objc public var OnKepolLockerSearchFinished: ((_ data: [KepolLockerModel]) -> ())?
+  @objc public var OnBoxOpenedFinished: ((_ openBoxesModel: OpenBoxesModel) -> ())?
+  @objc public var OnInitFinished: (() -> ())?
+  @objc public var OnInitUpdate: ((_ data: Swift.String) -> ())?
+  @objc public var OnInitFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnBoxOpenedFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnKepolLockerSearchFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnLockerStatusFailed: ((_ data: ProblemDetails) -> ())?
+  @objc public var OnLockerStatusReceived: ((_ lockerStatusModel: [LockerPropertyModel]) -> ())?
+  @objc public var OnRemoteActionsReceived: ((_ data: [RemoteActionsModel]) -> ())?
+  @objc public var OnRemoteActionsFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnGetAllComponentsReceived: ((_ data: LockerComponentsModel) -> ())?
+  @objc public var OnGetAllComponentsFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnGetAllFeaturesReceived: ((_ data: LockerFeaturesModel) -> ())?
+  @objc public var OnGetAllFeaturesFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnGetLockerComponentsFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnGetLockerComponentsReceived: ((_ data: LockerComponentsModel) -> ())?
+  @objc public var OnSetLockerComponentsFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnSetLockerComponentsSuccess: (() -> ())?
+  @objc public var OnGetLockerFeaturesFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnGetLockerFeaturesReceived: ((_ data: LockerFeaturesModel) -> ())?
+  @objc public var OnPublicKeySet: ((_ result: FeedbackModel) -> ())?
+  @objc public var OnPublicKeySetFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnLockerInfoFailed: ((ProblemDetails) -> ())?
+  @objc public var OnLockerInfoReceived: ((KepolLockerModel) -> ())?
+  @available(*, deprecated, message: "Callback will be deleted in upcoming Release; Use new func onModuleVersionInfosFailed")
+  @objc public var OnModuleVersionInfoFailed: ((ProblemDetails) -> ())?
+  @available(*, deprecated, message: "Callback will be deleted in upcoming Release; Use new Callback onModuleVersionInfosReceived")
+  @objc public var OnModuleVersionInfoReceived: ((VersionInfoModel) -> ())?
+  @objc public var OnModuleVersionInfosReceived: ((LockerModuleVersionInfosModel) -> ())?
+  @objc public var OnModuleVersionInfosFailed: ((ProblemDetails) -> ())?
+  @objc public var OnTokenReceived: ((_ deliveryToken: Swift.String) -> ())?
+  @objc public var OnTokenFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnTokenWithPrivilegesReceived: ((_ tokenWithPrivileges: KepolRegisteredAgent) -> ())?
+  @objc public var OnTokenWithPrivilegesFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnAvailableBoxSizesFinished: ((_ boxStatusModel: BoxSizeModel) -> ())?
+  @objc public var OnAvailableBoxSizesFailed: ((ProblemDetails) -> ())?
+  @objc public var OnDeliveryParcelFinished: ((_ deliveryModel: DeliveryModel) -> ())?
+  @objc public var OnDeliveryParcelFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnPickupParcelSuccess: ((_ result: PickupParcelModel) -> ())?
+  @objc public var OnPickupParcelFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnPingFailed: ((_ actionFailed: Swift.String) -> ())?
+  @objc public var OnRunningTimeoutSoon: (() -> ())?
+  @objc public var OnLogFileSyncFailed: ((ProblemDetails) -> ())?
+  @objc public var OnLogFileSyncUpdate: ((LogFileSyncUpdate) -> ())?
+  @objc public var OnActionAborted: ((Swift.String) -> ())?
+  @objc public var OnDeleteFailed: ((ProblemDetails) -> ())?
+  @objc public var OnLockerDeleted: (() -> ())?
+  @objc public var OnAvailablePickupsFinished: (([AvailablePickupParcelModel]) -> ())?
+  @objc public var OnAvailablePickupsFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnPickupParcelsSuccess: (([AvailablePickupParcelModel]) -> ())?
+  @objc public var OnPickupParcelsFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnConnectionClosedBle: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnConfirmDeliveryFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnConfirmDeliverySuccess: ((_ identCode: Swift.String, _ boxId: Swift.Int) -> ())?
+  @objc public var OnConfirmPickupSuccess: ((_ code: Swift.String, _ boxNumber: Swift.Int) -> ())?
+  @objc public var OnConfirmPickupFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnSetBoxConditionSuccess: ((_ boxNumber: Swift.Int, _ soiled: Swift.Bool, _ defect: Swift.Bool) -> ())?
+  @objc public var OnSetBoxConditionFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnSetPickupCodesSuccess: ((_ result: SetPickupCodeResponseModel) -> ())?
+  @objc public var OnSetPickupCodesFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnClearPickupCodesSuccess: ((_ result: ClearPickupCodeResponseModel) -> ())?
+  @objc public var OnClearPickupCodesFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnGetPickupCodesStatusSuccess: ((_ result: StatusPickupCodeResponseModel) -> ())?
+  @objc public var OnGetPickupCodesStatusFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnSetPickupCodesWithIdentCodeSuccess: (() -> ())?
+  @objc public var OnSetPickupCodesWithIdentCodeFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public var OnSyncPickupCodesSuccess: (() -> ())?
+  @objc public var OnSyncPickupCodesFailed: ((_ actionFailed: ProblemDetails) -> ())?
+  @objc public static func GetKepolServiceAPI(_ backendConfig: BackendConfig = BackendConfig.GetProductiveKepolCloudConfig()) -> any IKepolServiceAPI
+  @objc public static func GetKepolAPI(_ backendConfig: BackendConfig = BackendConfig.GetProductiveKepolCloudConfig()) -> any IKepolAPI
+  @objc public static func GetKepolDeliveryAPI(_ backendConfig: BackendConfig = BackendConfig.GetProductiveKepolCloudConfig()) -> any IKepolDeliveryPickupAPI
+  @objc public func SetToken(_ token: Swift.String)
+  @objc public func UpdateToken(_ accessToken: Swift.String)
+  @objc public func SetTenantId(_ tenantId: Swift.String)
+  @objc public func CheckBluetoothEnabled() -> Swift.String
+  @objc public func FindLocker(_ DurationSec: Swift.UInt32 = 10000) -> Swift.Bool
+  @objc public func StopSearch()
+  @objc public func Connect(_ kepolLocker: KepolLockerModel) -> Swift.Bool
+  @objc public func IsConnected() -> Swift.Bool
+  @objc public func Disconnect() -> Swift.Bool
+  @objc public func OpenBoxes(_ boxNumbers: [Swift.Int32]) -> Swift.Bool
+  @objc public func GetBoxesStatus() -> Swift.Bool
+  @objc public func GetLockerStatus() -> Swift.Bool
+  @objc public func InitNewLocker(_ lockerId: Swift.String, _ locker: KepolLockerModel) -> Swift.Bool
+  @objc public func GetRemoteActions() -> Swift.Bool
+  @objc public func ExecuteRemoteActions(_ remoteAction: RemoteActionsModel) -> Swift.Bool
+  @objc public func SetPublicKey() -> Swift.Bool
+  @objc public func GetAllComponents() -> Swift.Bool
+  @objc public func GetAllFeatures() -> Swift.Bool
+  @objc public func GetLockerComponents() -> Swift.Bool
+  @objc public func SetLockerComponents(_ componentIds: [Swift.String]) -> Swift.Bool
+  @objc public func GetLockerFeatures() -> Swift.Bool
+  @objc public static func GetVersion() -> Swift.String
+  @objc public func GetDeliveryToken(_ lockerId: Swift.String, _ tenantId: Swift.String) -> Swift.Bool
+  @objc public func GetDeliveryToken(_ tenantId: Swift.String, _ userName: Swift.String, _ pin: Swift.String) -> Swift.Bool
+  @objc public func RefreshDeliveryToken(_ agent: KepolRegisteredAgent) -> Swift.Bool
+  @objc public func GetAvailableBoxSizes(_ identCode: Swift.String) -> Swift.Bool
+  @objc public func DeliverParcel(_ identCode: Swift.String, _ size: Swift.String) -> Swift.Bool
+  @objc public func SetBoxCondition(_ identCode: Swift.String, _ boxNumber: Swift.Int, _ soiled: Swift.Bool, _ defect: Swift.Bool)
+  @objc public func ConfirmDelivery(_ identCode: Swift.String, _ boxId: Swift.Int)
+  @objc public func ConfirmDelivery(_ identCode: Swift.String, _ boxId: Swift.Int, _ pickupCodeSet: Swift.Bool)
+  @objc public func GetPickupToken(_ lockerId: Swift.String, _ tenantId: Swift.String) -> Swift.Bool
+  @objc public func PickupParcel(_ pickupCode: Swift.String) -> Swift.Bool
+  @objc public func ConfirmPickupParcel(_ pickupCode: Swift.String, _ boxNumber: Swift.Int)
+  @objc public func ConfirmPickupParcel(_ parcel: AvailablePickupParcelModel)
+  @objc public func GetAvailablePickups() -> Swift.Bool
+  @objc public func PickupParcels(_ parcels: [AvailablePickupParcelModel]) -> Swift.Bool
+  @objc public func DeliverParcelFirstMile(_ parcelReturnCode: Swift.String, _ size: Swift.String) -> Swift.Bool
+  @objc public func GetAvailableBoxSizesFirstMile(_ parcelReturnCode: Swift.String) -> Swift.Bool
+  @objc public func ConfirmDeliveryFirstMile(_ parcelReturnCode: Swift.String, _ boxId: Swift.Int)
+  @objc public func ConfirmDeliveryFirstMile(_ parcelReturnCode: Swift.String, _ boxId: Swift.Int, _ parameters: KepolParameters)
+  @objc public func SyncLogFiles() -> Swift.Bool
+  @objc public func AbortCurrentAction() -> Swift.Bool
+  @objc public func GetLockerInfo() -> Swift.Bool
+  @available(*, deprecated, message: "Callback will be deleted in upcoming Release; Use new func GetAllModulesVersionInfo")
+  @objc public func GetVersionInfo(_ fwModel: FirmwareModel) -> Swift.Bool
+  @objc public func GetAllModulesVersionInfo() -> Swift.Bool
+  @objc public func Ping() -> Swift.Bool
+  @objc public func DeleteLocker() -> (Swift.Bool)
+  @objc public func IsPickupCodeFeatureSupported() -> (Swift.Bool)
+  @objc public func SetPickupCodes(_ pickupCodes: [SetPickupCodeModel]) -> (Swift.Bool)
+  @objc public func ClearPickupCodes(_ boxNumbers: [Swift.Int32]) -> (Swift.Bool)
+  @objc public func ClearAllPickupCodes() -> (Swift.Bool)
+  @objc public func GetPickupCodeStatus(_ boxNumbers: [Swift.Int32]) -> (Swift.Bool)
+  @objc public func GetPickupCodeStatus(_ boxNumbers: [Swift.Int32], _ filter: GetPickupCodeStatusBoxModel.PickupCodeStatus) -> (Swift.Bool)
+  @objc public func SetPickupCodesWithIdentCode(_ setPickupCodeWithIdentCodeData: [SetPickupCodeWithIdentCodeModel]) -> (Swift.Bool)
+  @objc public func SyncPickupCodes() -> (Swift.Bool)
+  @objc public func ConfirmDeliveryAndSetPickupCode(_ identCode: Swift.String, _ boxId: Swift.Int) -> Swift.Bool
+  @objc deinit
+}
+@objc public class KepolParameters : ObjectiveC.NSObject {
+  @objc public init(_ params: [Parameter.RawValue : Swift.String])
+  @objc public var Parameters: [Parameter.RawValue : Swift.String] {
+    @objc get
+  }
+  public func addParameter(_ key: Parameter, _ value: Swift.String)
+  @objc deinit
+}
+@objc public enum Parameter : Swift.Int32, Swift.RawRepresentable {
+  case EMAIL
+  case UNKNOWN
+  public typealias RawValue = Swift.String
+  public var rawValue: Parameter.RawValue {
+    get
+  }
+  public init(rawValue: Parameter.RawValue)
+}
+@objc public class FirmwareModel : ObjectiveC.NSObject {
+  public init(id: Swift.Int, name: Swift.String, moduleData: Swift.String)
+  @objc public var Name: Swift.String {
+    @objc get
+  }
+  @objc public var Id: Swift.Int {
+    @objc get
+  }
+  @objc public var ModuleData: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class LogFileContentModel : ObjectiveC.NSObject {
+  public init(hardwareId: Swift.String, type: Swift.String, log: Swift.String, timestamp: Swift.Int64)
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var ResponseType: Swift.String {
+    @objc get
+  }
+  @objc public var Log: Swift.String {
+    @objc get
+  }
+  @objc public var Timestamp: Swift.Int64 {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class SetPickupCodeWithIdentCodeModel : ObjectiveC.NSObject {
+  public init(boxNumber: Swift.Int, identCode: Swift.String)
+  @objc public var BoxNumber: Swift.Int {
+    @objc get
+  }
+  @objc public var IdentCode: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class AvailablePickupParcelModel : ObjectiveC.NSObject {
+  public init(identCode: Swift.String, boxNumber: Swift.Int32, puType: Swift.String)
+  @objc public var IdentCode: Swift.String {
+    @objc get
+  }
+  @objc public var BoxNumber: Swift.Int32 {
+    @objc get
+  }
+  @objc public var PickUpType: AvailablePickupParcelModel.PickupType {
+    @objc get
+  }
+  @objc public enum PickupType : Swift.Int32, Swift.RawRepresentable {
+    case FIRST_MILE
+    case EXPIRED
+    case REJECTED
+    case UNKNOWN
+    public typealias RawValue = Swift.String
+    public var rawValue: AvailablePickupParcelModel.PickupType.RawValue {
+      get
+    }
+    public init?(rawValue: AvailablePickupParcelModel.PickupType.RawValue)
+  }
+  @objc deinit
+}
+@objc(IKepolDeliveryPickupAPI) public protocol IKepolDeliveryPickupAPI : IKepolCommonApi {
+  @objc func SetTenantId(_ tenantId: Swift.String)
+  @objc func GetDeliveryToken(_ lockerId: Swift.String, _ tenantId: Swift.String) -> Swift.Bool
+  @objc func GetDeliveryToken(_ tenantId: Swift.String, _ userName: Swift.String, _ pin: Swift.String) -> Swift.Bool
+  @objc func RefreshDeliveryToken(_ agent: KepolRegisteredAgent) -> Swift.Bool
+  @objc func DeliverParcel(_ identCode: Swift.String, _ size: Swift.String) -> Swift.Bool
+  @objc func GetAvailableBoxSizes(_ identCode: Swift.String) -> Swift.Bool
+  @objc func SetBoxCondition(_ identCode: Swift.String, _ boxNumber: Swift.Int, _ soiled: Swift.Bool, _ defect: Swift.Bool)
+  @objc func ConfirmDelivery(_ identCode: Swift.String, _ boxId: Swift.Int)
+  @objc func ConfirmDelivery(_ identCode: Swift.String, _ boxId: Swift.Int, _ pickupCodeSet: Swift.Bool)
+  @objc func GetPickupToken(_ lockerId: Swift.String, _ tenantId: Swift.String) -> Swift.Bool
+  @objc func PickupParcel(_ pickupCode: Swift.String) -> Swift.Bool
+  @objc func ConfirmPickupParcel(_ pickupCode: Swift.String, _ boxNumber: Swift.Int)
+  @objc func ConfirmPickupParcel(_ parcel: AvailablePickupParcelModel)
+  @objc func GetAvailablePickups() -> Swift.Bool
+  @objc func PickupParcels(_ parcels: [AvailablePickupParcelModel]) -> Swift.Bool
+  @objc func DeliverParcelFirstMile(_ parcelReturnCode: Swift.String, _ size: Swift.String) -> Swift.Bool
+  @objc func GetAvailableBoxSizesFirstMile(_ parcelReturnCode: Swift.String) -> Swift.Bool
+  @objc func ConfirmDeliveryFirstMile(_ parcelReturnCode: Swift.String, _ boxId: Swift.Int)
+  @objc func ConfirmDeliveryFirstMile(_ parcelReturnCode: Swift.String, _ boxId: Swift.Int, _ parameters: KepolParameters)
+  @objc func SetPickupCodesWithIdentCode(_ data: [SetPickupCodeWithIdentCodeModel]) -> (Swift.Bool)
+  @objc func SyncPickupCodes() -> (Swift.Bool)
+  @objc func ConfirmDeliveryAndSetPickupCode(_ identCode: Swift.String, _ boxId: Swift.Int) -> Swift.Bool
+  @objc var OnTokenReceived: ((_ deliveryToken: Swift.String) -> ())? { get set }
+  @objc var OnTokenFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnTokenWithPrivilegesReceived: ((_ kepolRegisteredAgent: KepolRegisteredAgent) -> ())? { get set }
+  @objc var OnTokenWithPrivilegesFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnAvailableBoxSizesFinished: ((_ boxSizeModel: BoxSizeModel) -> ())? { get set }
+  @objc var OnAvailableBoxSizesFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnDeliveryParcelFinished: ((_ delivery: DeliveryModel) -> ())? { get set }
+  @objc var OnDeliveryParcelFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnPickupParcelSuccess: ((_ result: PickupParcelModel) -> ())? { get set }
+  @objc var OnPickupParcelFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnAvailablePickupsFinished: ((_ availablePickupParcelModel: [AvailablePickupParcelModel]) -> ())? { get set }
+  @objc var OnAvailablePickupsFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnPickupParcelsSuccess: ((_ availablePickupParcelModel: [AvailablePickupParcelModel]) -> ())? { get set }
+  @objc var OnPickupParcelsFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnConfirmDeliveryFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnConfirmDeliverySuccess: ((Swift.String, Swift.Int) -> ())? { get set }
+  @objc var OnConfirmPickupSuccess: ((Swift.String, Swift.Int) -> ())? { get set }
+  @objc var OnConfirmPickupFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnSetBoxConditionSuccess: ((_ boxNumber: Swift.Int, _ soiled: Swift.Bool, _ defect: Swift.Bool) -> ())? { get set }
+  @objc var OnSetBoxConditionFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnSetPickupCodesWithIdentCodeSuccess: (() -> ())? { get set }
+  @objc var OnSetPickupCodesWithIdentCodeFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnSyncPickupCodesSuccess: (() -> ())? { get set }
+  @objc var OnSyncPickupCodesFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+}
+@objc(IKepolCommonApi) public protocol IKepolCommonApi {
+  @objc func FindLocker(_ DurationSec: Swift.UInt32) -> Swift.Bool
+  @objc func StopSearch()
+  @objc func Connect(_ kepolLocker: KepolLockerModel) -> Swift.Bool
+  @objc func IsConnected() -> Swift.Bool
+  @objc func Disconnect() -> Swift.Bool
+  @objc func SetToken(_ token: Swift.String)
+  @objc func UpdateToken(_ accessToken: Swift.String)
+  @objc func CheckBluetoothEnabled() -> Swift.String
+  @objc func OpenBoxes(_ boxNumbers: [Swift.Int32]) -> Swift.Bool
+  @objc func GetBoxesStatus() -> Swift.Bool
+  @objc func Ping() -> Swift.Bool
+  @objc func IsPickupCodeFeatureSupported() -> (Swift.Bool)
+  @objc var OnKepolLockerSearchFound: ((_ data: [KepolLockerModel]) -> ())? { get set }
+  @objc var OnKepolLockerSearchFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnConnectionEstablished: ((_ sessionId: Swift.String) -> ())? { get set }
+  @objc var OnConnectionClosed: ((_ data: Swift.Int) -> ())? { get set }
+  @objc var OnConnectionClosedFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnConnectionClosedBle: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnConnectionEstablishedFailed: ((_ data: ProblemDetails) -> ())? { get set }
+  @objc var OnKepolLockerSearchFinished: ((_ data: [KepolLockerModel]) -> ())? { get set }
+  @objc var OnBoxOpenedFinished: ((_ openBoxesModel: OpenBoxesModel) -> ())? { get set }
+  @objc var OnBoxOpenedFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnBoxesStatusReceived: ((_ boxStatusModel: [BoxStatusModel], _ boxStatusChangedOnLocker: Swift.Bool) -> ())? { get set }
+  @objc var OnBoxesStatusFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnPingFailed: ((_ actionFailed: Swift.String) -> ())? { get set }
+  @objc var OnRunningTimeoutSoon: (() -> ())? { get set }
+}
+@_inheritsConvenienceInitializers @objc(KepolLockerLED) public class KepolLockerLED : ObjectiveC.NSObject {
+  @objc public static func turnOn(_ locker: KepolLockerModel)
+  @objc public static func turnOff(_ locker: KepolLockerModel)
+  @objc public static func turnAllOff()
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DeliveryResponseModel : ObjectiveC.NSObject {
+  public init(hardwareId: Swift.String, identCode: Swift.String, boxNumber: Swift.Int, payload: Swift.String)
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var IdentCode: Swift.String {
+    @objc get
+  }
+  @objc public var BoxNumber: Swift.Int {
+    @objc get
+  }
+  @objc public var Payload: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class BoxSizeModel : ObjectiveC.NSObject {
+  public init(hardwareId: Swift.String, sizes: [Swift.String], announcementSize: Swift.String)
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var Sizes: [Swift.String] {
+    @objc get
+  }
+  @objc public var AnnouncementSize: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class LockerComponentsModel : ObjectiveC.NSObject {
+  public init(components: [LockerComponentModel])
+  @objc public var Components: [LockerComponentModel] {
+    @objc get
+  }
+  @objc deinit
+}
+@objc(IKepolServiceAPI) public protocol IKepolServiceAPI : IKepolAPI {
+  @objc func GetLockerInfo() -> Swift.Bool
+  @available(*, deprecated, message: "Callback will be deleted in upcoming Release; Use new func GetAllModulesVersionInfo")
+  @objc func GetVersionInfo(_ fwModel: FirmwareModel) -> Swift.Bool
+  @objc func GetAllModulesVersionInfo() -> Swift.Bool
+  @objc func GetLockerStatus() -> Swift.Bool
+  @objc func GetRemoteActions() -> Swift.Bool
+  @objc func ExecuteRemoteActions(_ remoteAction: RemoteActionsModel) -> Swift.Bool
+  @objc func InitNewLocker(_ lockerId: Swift.String, _ locker: KepolLockerModel) -> Swift.Bool
+  @objc func SetPublicKey() -> Swift.Bool
+  @objc func SyncLogFiles() -> Swift.Bool
+  @objc func AbortCurrentAction() -> (Swift.Bool)
+  @objc func DeleteLocker() -> (Swift.Bool)
+  @objc func GetLockerComponents() -> (Swift.Bool)
+  @objc func GetAllComponents() -> (Swift.Bool)
+  @objc func GetAllFeatures() -> (Swift.Bool)
+  @objc func SetLockerComponents(_ componentIds: [Swift.String]) -> (Swift.Bool)
+  @objc func GetLockerFeatures() -> (Swift.Bool)
+  @objc var OnLockerStatusFailed: ((_ data: ProblemDetails) -> ())? { get set }
+  @objc var OnLockerStatusReceived: ((_ lockerStatusModel: [LockerPropertyModel]) -> ())? { get set }
+  @objc var OnRemoteActionsReceived: ((_ data: [RemoteActionsModel]) -> ())? { get set }
+  @objc var OnRemoteActionsFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnPublicKeySet: ((_ result: FeedbackModel) -> ())? { get set }
+  @objc var OnPublicKeySetFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnInitFinished: (() -> ())? { get set }
+  @objc var OnInitUpdate: ((_ data: Swift.String) -> ())? { get set }
+  @objc var OnInitFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnLockerInfoFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnLockerInfoReceived: ((_ kepolLocker: KepolLockerModel) -> ())? { get set }
+  @available(*, deprecated, message: "Callback will be deleted in upcoming Release; Use new func onModuleVersionInfosFailed")
+  @objc var OnModuleVersionInfoFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @available(*, deprecated, message: "Callback will be deleted in upcoming Release; Use new Callback onModuleVersionInfosReceived")
+  @objc var OnModuleVersionInfoReceived: ((_ versionInfoModel: VersionInfoModel) -> ())? { get set }
+  @objc var OnModuleVersionInfosReceived: ((_ versionInfosModel: LockerModuleVersionInfosModel) -> ())? { get set }
+  @objc var OnModuleVersionInfosFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnLogFileSyncFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnLogFileSyncUpdate: ((_ fileSyncUpdate: LogFileSyncUpdate) -> ())? { get set }
+  @objc var OnActionAborted: ((_ action: Swift.String) -> ())? { get set }
+  @objc var OnDeleteFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnLockerDeleted: (() -> ())? { get set }
+  @objc var OnGetAllComponentsFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnGetAllComponentsReceived: ((_ data: LockerComponentsModel) -> ())? { get set }
+  @objc var OnGetAllFeaturesFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnGetAllFeaturesReceived: ((_ data: LockerFeaturesModel) -> ())? { get set }
+  @objc var OnGetLockerComponentsFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnGetLockerComponentsReceived: ((_ data: LockerComponentsModel) -> ())? { get set }
+  @objc var OnSetLockerComponentsFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnSetLockerComponentsSuccess: (() -> ())? { get set }
+  @objc var OnGetLockerFeaturesFailed: ((_ actionFailed: ProblemDetails) -> ())? { get set }
+  @objc var OnGetLockerFeaturesReceived: ((_ data: LockerFeaturesModel) -> ())? { get set }
+}
+@objc public class SetPickupCodeModel : ObjectiveC.NSObject {
+  public init(boxNumber: Swift.Int, pickupCode: Swift.String)
+  @objc public var BoxNumber: Swift.Int {
+    @objc get
+  }
+  @objc public var PickupCode: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class ProblemDetails : ObjectiveC.NSObject {
+  public init(type: Swift.String, title: Swift.String, status: Swift.Int, detail: Swift.String, traceId: Swift.String, extendedErrorCode: KepolAppErrorCode.ErrorCode = KepolAppErrorCode.ErrorCode.NONE)
+  @objc public var ResponseType: Swift.String {
+    @objc get
+  }
+  @objc public var Title: Swift.String {
+    @objc get
+  }
+  @objc public var Status: Swift.Int {
+    @objc get
+  }
+  @objc public var Detail: Swift.String {
+    @objc get
+  }
+  @objc public var TraceId: Swift.String {
+    @objc get
+  }
+  @objc public var ExtendedErrorCode: KepolAppErrorCode.ErrorCode {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class LockerModuleInfo : ObjectiveC.NSObject {
+  public init(deviceId: Swift.Int, deviceShortName: Swift.String, typeId: Swift.Int, typeShortName: Swift.String, position: Swift.String, version: Swift.String)
+  @objc public var DeviceId: Swift.Int {
+    @objc get
+  }
+  @objc public var DeviceShortName: Swift.String {
+    @objc get
+  }
+  @objc public var TypeId: Swift.Int {
+    @objc get
+  }
+  @objc public var TypeShortName: Swift.String {
+    @objc get
+  }
+  @objc public var Position: Swift.String {
+    @objc get
+  }
+  @objc public var Version: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class BoxStatusModel : ObjectiveC.NSObject {
+  public init(id: Swift.Int32, error: Swift.Bool, burglary: Swift.Bool, recovery: Swift.Bool, state: Swift.String, boxNumber: Swift.Int32, hardwareId: Swift.String, type: MessageType)
+  @objc public var Id: Swift.Int32 {
+    @objc get
+  }
+  @objc public var Error: Swift.Bool {
+    @objc get
+  }
+  @objc public var Burglary: Swift.Bool {
+    @objc get
+  }
+  @objc public var Recovery: Swift.Bool {
+    @objc get
+  }
+  @objc public var State: BoxStatusModel.BoxState {
+    @objc get
+  }
+  @objc public var BoxNumber: Swift.Int32 {
+    @objc get
+  }
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var MessageType: MessageType {
+    @objc get
+  }
+  @objc public enum BoxState : Swift.Int32, Swift.RawRepresentable {
+    case Unknown
+    case Opening
+    case Open
+    case Closed
+    case Error
+    case Disabled
+    case Secured
+    public typealias RawValue = Swift.String
+    public var rawValue: BoxStatusModel.BoxState.RawValue {
+      get
+    }
+    public init?(rawValue: BoxStatusModel.BoxState.RawValue)
+  }
+  @objc deinit
+}
+@objc public class LockerComponentModel : ObjectiveC.NSObject {
+  public init(id: Swift.String, name: Swift.String, description: Swift.String)
+  @objc public var Id: Swift.String {
+    @objc get
+  }
+  @objc public var Name: Swift.String {
+    @objc get
+  }
+  @objc public var Description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class LogFilesInfoModel : ObjectiveC.NSObject {
+  public init(hardwareId: Swift.String, type: Swift.String, oldestLogFileId: Swift.Int32, latestLogFileId: Swift.Int32, logFilesMissingOnBackend: [Swift.Int32])
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var ResponseType: Swift.String {
+    @objc get
+  }
+  @objc public var OldestLogFileId: Swift.Int32 {
+    @objc get
+  }
+  @objc public var LatestLogFileId: Swift.Int32 {
+    @objc get
+  }
+  @objc public var LogFilesMissingOnBackend: [Swift.Int32] {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class PickupResponseModel : ObjectiveC.NSObject {
+  public init(boxesToOpen: [Swift.Int], payload: Swift.String)
+  @objc public var BoxesToOpen: [Swift.Int] {
+    @objc get
+  }
+  @objc public var Payload: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class LogFileSyncUpdate : ObjectiveC.NSObject {
+  public init(logFilesCount: Swift.Int, logFilesUploaded: Swift.Int, sizeUploaded: Swift.Int64, sizeAverageUploaded: Swift.Int64, finished: Swift.Bool, aborted: Swift.Bool)
+  @objc public var LogFilesCount: Swift.Int {
+    @objc get
+  }
+  @objc public var LogFilesUploaded: Swift.Int {
+    @objc get
+  }
+  @objc public var SizeUploaded: Swift.Int64 {
+    @objc get
+  }
+  @objc public var SizeAverageUploaded: Swift.Int64 {
+    @objc get
+  }
+  @objc public var Finished: Swift.Bool {
+    @objc get
+  }
+  @objc public var Aborted: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class OpenBoxesModel : ObjectiveC.NSObject {
+  public init(hardwareId: Swift.String, type: Swift.String, openedBoxes: [BoxStatusModel])
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var ResponseType: Swift.String {
+    @objc get
+  }
+  @objc public var OpenedBoxes: [BoxStatusModel] {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class RemoteActionsModel : ObjectiveC.NSObject {
+  public init(action: Swift.String, input: Swift.String)
+  @objc public var Action: Swift.String {
+    @objc get
+  }
+  @objc public var Input: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class SetPickupCodeResponseModel : ObjectiveC.NSObject {
+  public init(hardwareId: Swift.String, type: MessageType, result: [PickupCodeFeedbackModel])
+  @objc public var Result: [PickupCodeFeedbackModel] {
+    @objc get
+  }
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var MessageType: MessageType {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class PickupCodeFeedbackModel : ObjectiveC.NSObject {
+  public init(boxNumber: Swift.Int32, result: Swift.String)
+  @objc public var BoxNumber: Swift.Int32 {
+    @objc get
+  }
+  @objc public var Result: PickupCodeFeedbackModel.PickupCodeFeedback {
+    @objc get
+  }
+  @objc public enum PickupCodeFeedback : Swift.Int32, Swift.RawRepresentable {
+    case SUCCESS
+    case DIFFERENT_CODE_ALREADY_SET
+    case CODE_TOO_SHORT
+    case CODE_TO_LONG
+    case INVALID_CODE_CHARACTERS
+    case COMPARTMENT_NUMBER_INVALID
+    case FAILED
+    public typealias RawValue = Swift.String
+    public var rawValue: PickupCodeFeedbackModel.PickupCodeFeedback.RawValue {
+      get
+    }
+    public init?(rawValue: PickupCodeFeedbackModel.PickupCodeFeedback.RawValue)
+  }
+  @objc deinit
+}
+@objc public class LockerFeatureModel : ObjectiveC.NSObject {
+  public init(id: Swift.String, name: Swift.String, description: Swift.String)
+  @objc public var Id: Swift.String {
+    @objc get
+  }
+  @objc public var Name: Swift.String {
+    @objc get
+  }
+  @objc public var Description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+public struct JsonLockerModel : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@objc public class LockerModuleVersionInfosModel : ObjectiveC.NSObject {
+  public init(infos: [LockerModuleInfo])
+  @objc public var ModuleVersionInfos: [LockerModuleInfo] {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class DeliveryModel : ObjectiveC.NSObject {
+  public init(identCode: Swift.String, boxNumber: Swift.Int)
+  @objc public var IdentCode: Swift.String {
+    @objc get
+  }
+  @objc public var BoxNumber: Swift.Int {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class KepolRegisteredAgent : ObjectiveC.NSObject, Swift.Codable {
+  @objc public init(_ accessToken: Swift.String, _ refreshToken: Swift.String, _ user: KepolUser)
+  @objc public var AccessToken: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var RefreshToken: Swift.String {
+    @objc get
+    @objc set
+  }
+  @available(*, deprecated, message: "ExpiredTime is deprecated, use AccessTokenExpirationTime and RefreshTokenExpirationTime")
+  @objc public var ExpiredTime: Swift.Int64 {
+    @objc get
+    @objc set
+  }
+  @objc public var RefreshTokenExpirationTime: Swift.Int64 {
+    @objc get
+    @objc set
+  }
+  @objc public var AccessTokenExpirationTime: Swift.Int64 {
+    @objc get
+    @objc set
+  }
+  @objc public var User: KepolUser {
+    @objc get
+  }
+  public func serialize() throws -> Swift.String
+  public static func deserialize(from jsonString: Swift.String) throws -> KepolRegisteredAgent?
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@objc public class KepolUser : ObjectiveC.NSObject, Swift.Codable {
+  public init(_ userId: Swift.String, _ privileges: [Swift.String], _ gender: Swift.String, _ lastName: Swift.String, _ firstName: Swift.String, _ eMail: Swift.String, _ allowAllMachines: Swift.Bool, _ allowedMachines: [Swift.String])
+  @objc public var UserId: Swift.String {
+    @objc get
+  }
+  @objc public var Privileges: [Swift.String] {
+    @objc get
+  }
+  @objc public var Gender: Swift.String {
+    @objc get
+  }
+  @objc public var LastName: Swift.String {
+    @objc get
+  }
+  @objc public var FirstName: Swift.String {
+    @objc get
+  }
+  @objc public var EMail: Swift.String {
+    @objc get
+  }
+  @objc public var AllowAllMachines: Swift.Bool {
+    @objc get
+  }
+  @objc public var AllowedMachines: [Swift.String] {
+    @objc get
+  }
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@objc public class LockerFeaturesModel : ObjectiveC.NSObject {
+  public init(features: [LockerFeatureModel])
+  @objc public var Features: [LockerFeatureModel] {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class ClearPickupCodeResponseModel : ObjectiveC.NSObject {
+  public init(hardwareId: Swift.String, type: MessageType, result: [PickupCodeFeedbackModel])
+  @objc public var Result: [PickupCodeFeedbackModel] {
+    @objc get
+  }
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var MessageType: MessageType {
+    @objc get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class KepolLockerModel : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  public init(lockerid: Swift.String, hardwareId: Swift.String, firmwareModels: [FirmwareModel], firmwareVersion: Swift.String, protocolVersion: Swift.String, lockerProperties: [LockerPropertyModel], remoteActions: [RemoteActionsModel], isInitialized: Swift.Bool, isBusy: Swift.Bool)
+  public init(jsonLocker: JsonLockerModel, protocolVersion: Swift.String, isBusy: Swift.Bool)
+  @objc public var LockerId: Swift.String {
+    @objc get
+  }
+  @objc public var HardwareId: Swift.String {
+    @objc get
+  }
+  @objc public var FirmwareVersion: Swift.String {
+    @objc get
+  }
+  @objc public var ProtocolVersion: Swift.String {
+    @objc get
+  }
+  @objc public var FirmwareModels: [FirmwareModel] {
+    @objc get
+  }
+  @objc public var LockerProperties: [LockerPropertyModel] {
+    @objc get
+  }
+  @objc public var RemoteActions: [RemoteActionsModel] {
+    @objc get
+  }
+  @objc public var IsInitialized: Swift.Bool {
+    @objc get
+  }
+  @objc public var isConnectable: Swift.Bool {
+    @objc get
+  }
+  @objc public enum Feature : Swift.Int32, Swift.CaseIterable, Swift.RawRepresentable, Swift.Codable {
+    case PICKUP_CODE
+    public typealias RawValue = Swift.String
+    public var rawValue: KepolLockerModel.Feature.RawValue {
+      get
+    }
+    public init?(rawValue: KepolLockerModel.Feature.RawValue)
+    public typealias AllCases = [KepolLockerModel.Feature]
+    public static var allCases: [KepolLockerModel.Feature] {
+      get
+    }
+  }
+  @objc deinit
+}
+@objc public class BackendConfig : ObjectiveC.NSObject {
+  @objc public var Host: Swift.String {
+    @objc get
+  }
+  @objc public var ApiVersion: Swift.String {
+    @objc get
+  }
+  @objc public var Environment: Swift.String {
+    @objc get
+  }
+  @objc public init(_ host: Swift.String)
+  @objc public init(_ host: Swift.String, _ apiVersion: Swift.String, _ environment: Swift.String)
+  @objc public func GetBaseURL() -> Swift.String
+  @objc public static func GetProductiveKepolCloudConfig() -> BackendConfig
+  @objc public static func GetStagingKepolCloudConfig() -> BackendConfig
+  @objc deinit
+}
+@objc public class PickupParcelsModel : ObjectiveC.NSObject {
+  public init(processedParcels: [AvailablePickupParcelModel], payload: Swift.String)
+  @objc public var ProcessedParcels: [AvailablePickupParcelModel] {
+    @objc get
+  }
+  @objc public var Payload: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public class PickupParcelModel : ObjectiveC.NSObject {
+  public init(pickupCode: Swift.String, boxes: [Swift.Int])
+  @objc public var PickupCode: Swift.String {
+    @objc get
+  }
+  @objc public var Boxes: [Swift.Int] {
+    @objc get
+  }
+  @objc deinit
+}
+extension GetPickupCodeStatusBoxModel.PickupCodeStatus : Swift.Equatable {}
+extension GetPickupCodeStatusBoxModel.PickupCodeStatus : Swift.Hashable {}
+extension MessageType : Swift.Equatable {}
+extension MessageType : Swift.Hashable {}
+extension LockerPropertyModel.LockerPropertyType : Swift.Equatable {}
+extension LockerPropertyModel.LockerPropertyType : Swift.Hashable {}
+extension LockerPropertyModel.LockerPropertyStatus : Swift.Equatable {}
+extension LockerPropertyModel.LockerPropertyStatus : Swift.Hashable {}
+extension KepolAppErrorCode.ErrorCode : Swift.Equatable {}
+extension KepolAppErrorCode.ErrorCode : Swift.Hashable {}
+extension Parameter : Swift.Equatable {}
+extension Parameter : Swift.Hashable {}
+extension AvailablePickupParcelModel.PickupType : Swift.Equatable {}
+extension AvailablePickupParcelModel.PickupType : Swift.Hashable {}
+extension BoxStatusModel.BoxState : Swift.Equatable {}
+extension BoxStatusModel.BoxState : Swift.Hashable {}
+extension PickupCodeFeedbackModel.PickupCodeFeedback : Swift.Equatable {}
+extension PickupCodeFeedbackModel.PickupCodeFeedback : Swift.Hashable {}
+extension KepolLockerModel.Feature : Swift.Equatable {}
+extension KepolLockerModel.Feature : Swift.Hashable {}
