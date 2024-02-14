@@ -8,7 +8,8 @@
 import Foundation
 import KepolSdk
 
-public class KepolWrapper{
+@objc
+public class KepolWrapper:NSObject{
     
 
     
@@ -16,13 +17,14 @@ public class KepolWrapper{
     var kepolApi:IKepolAPI
 
     
-    public init(){
-
+    public override init(){
         kepolApi = KepolSdk.GetKepolAPI()
+        super.init()
         kepolApi.OnKepolLockerSearchFound = onLockerSearchFound(_:)
         kepolApi.OnKepolLockerSearchFailed = onLockerSearchFailed(_:)
         kepolApi.OnKepolLockerSearchFinished = onKepolSearchFinished(_:)
     }
+    
     
     public func setAuthInfo(token:String,tenant:String){
         kepolApi.SetToken(token)
