@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import iOSKepolWrapper
+
 
 class ViewController: UIViewController {
+    
+    let kepol = KepolWrapper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        kepol.listener = self
+        
+    
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -19,6 +27,22 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func onTest(_:Any){
+        let a = kepol.SearchLocker()
+    }
 
+}
+
+extension ViewController:iOSKepolListener{
+    
+    func OnKepolLockerSearchFound(){
+        
+    }
+    
+    func OnKepolLockerSearchFailed(_ actionFailed: String){
+        
+    }
+    
 }
 

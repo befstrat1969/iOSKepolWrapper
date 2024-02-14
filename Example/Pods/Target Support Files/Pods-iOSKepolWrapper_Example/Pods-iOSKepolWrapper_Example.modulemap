@@ -1,0 +1,6 @@
+framework module Pods_iOSKepolWrapper_Example {
+  umbrella header "Pods-iOSKepolWrapper_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

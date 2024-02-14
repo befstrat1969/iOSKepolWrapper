@@ -1,0 +1,6 @@
+framework module iOSKepolWrapper {
+  umbrella header "iOSKepolWrapper-umbrella.h"
+
+  export *
+  module * { export * }
+}

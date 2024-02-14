@@ -1,0 +1,22 @@
+{
+  "name": "iOSKepolWrapper",
+  "version": "0.1.0",
+  "summary": "A short description of iOSKepolWrapper.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/befstrat1969/iOSKepolWrapper",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "befstrat1969": "befstrat@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/befstrat1969/iOSKepolWrapper.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "iOSKepolWrapper/Classes/**/*"
+}

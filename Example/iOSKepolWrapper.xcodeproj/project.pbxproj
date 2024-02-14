@@ -14,7 +14,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		D2B00CB6BBEA02BFF050A429 /* Pods_iOSKepolWrapper_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A606C0847E6138F3635E5EA1 /* Pods_iOSKepolWrapper_Example.framework */; };
+		B02404742B70C091008C1AB7 /* Pods_iOSKepolWrapper_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A606C0847E6138F3635E5EA1 /* Pods_iOSKepolWrapper_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		22392FA1D6DC245AB7DBA5BA /* Pods-iOSKepolWrapper_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSKepolWrapper_Tests.debug.xcconfig"; path = "Target Support Files/Pods-iOSKepolWrapper_Tests/Pods-iOSKepolWrapper_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		50ACB12032D62482F130528D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		50ACB12032D62482F130528D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		56B6C5963C9C2676108DD499 /* Pods-iOSKepolWrapper_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSKepolWrapper_Example.release.xcconfig"; path = "Target Support Files/Pods-iOSKepolWrapper_Example/Pods-iOSKepolWrapper_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* iOSKepolWrapper_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSKepolWrapper_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,12 +41,12 @@
 		607FACE51AFB9204008FA782 /* iOSKepolWrapper_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSKepolWrapper_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		83142E9682526A6A4E7C0FB4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		83142E9682526A6A4E7C0FB4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		8A4819669A1E284B1D1081C6 /* Pods_iOSKepolWrapper_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSKepolWrapper_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A51F1261B2A47D97CF0E9A20 /* Pods-iOSKepolWrapper_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSKepolWrapper_Example.debug.xcconfig"; path = "Target Support Files/Pods-iOSKepolWrapper_Example/Pods-iOSKepolWrapper_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A606C0847E6138F3635E5EA1 /* Pods_iOSKepolWrapper_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSKepolWrapper_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB13BC50CAF935CE96D3B59F /* Pods-iOSKepolWrapper_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSKepolWrapper_Tests.release.xcconfig"; path = "Target Support Files/Pods-iOSKepolWrapper_Tests/Pods-iOSKepolWrapper_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		E4ED33B375E17BC1D7DC932E /* iOSKepolWrapper.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = iOSKepolWrapper.podspec; path = ../iOSKepolWrapper.podspec; sourceTree = "<group>"; };
+		E4ED33B375E17BC1D7DC932E /* iOSKepolWrapper.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = iOSKepolWrapper.podspec; path = ../iOSKepolWrapper.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2B00CB6BBEA02BFF050A429 /* Pods_iOSKepolWrapper_Example.framework in Frameworks */,
+				B02404742B70C091008C1AB7 /* Pods_iOSKepolWrapper_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +156,6 @@
 				22392FA1D6DC245AB7DBA5BA /* Pods-iOSKepolWrapper_Tests.debug.xcconfig */,
 				BB13BC50CAF935CE96D3B59F /* Pods-iOSKepolWrapper_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -213,10 +212,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 4YB66B2RJL;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 4YB66B2RJL;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -227,6 +228,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -419,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -465,7 +467,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -478,6 +480,7 @@
 			baseConfigurationReference = A51F1261B2A47D97CF0E9A20 /* Pods-iOSKepolWrapper_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4YB66B2RJL;
 				INFOPLIST_FILE = iOSKepolWrapper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -493,6 +496,7 @@
 			baseConfigurationReference = 56B6C5963C9C2676108DD499 /* Pods-iOSKepolWrapper_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4YB66B2RJL;
 				INFOPLIST_FILE = iOSKepolWrapper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -507,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22392FA1D6DC245AB7DBA5BA /* Pods-iOSKepolWrapper_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4YB66B2RJL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -529,6 +534,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB13BC50CAF935CE96D3B59F /* Pods-iOSKepolWrapper_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 4YB66B2RJL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

@@ -1,0 +1,832 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D5561454F15E7D7DD0C2B93C93FFD32 /* Pods-iOSKepolWrapper_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E9CFC8C64C138FBF41FD75CBA8C717 /* Pods-iOSKepolWrapper_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15B00628186A5F028968B2AC7D3E3F22 /* Pods-iOSKepolWrapper_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 088188ED1670AEC3157CA904688ABA1D /* Pods-iOSKepolWrapper_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17A9CAAB307E9ABC6CB9C973B3CE99E3 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3AD285D9973C83462B7C04EFA9183F /* ReplaceMe.swift */; };
+		3EC1B0E8285827641E39C803C9446E68 /* iOSKepolWrapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 724FBE0A7A25EE694B1F1BF6AB88DF96 /* iOSKepolWrapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4145407A21467030457EA4C0687EC704 /* Pods-iOSKepolWrapper_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C64ED13C858D307ABB1798E9C070A9DC /* Pods-iOSKepolWrapper_Example-dummy.m */; };
+		4FD3C4B19845205A59F1DD7AC1AD78BA /* Pods-iOSKepolWrapper_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B95FA1653A906B532C477B91B3278E71 /* Pods-iOSKepolWrapper_Tests-dummy.m */; };
+		8206CB39CE46A3C370C82DC38F65666E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		B005D45D2B6D456E002B66F8 /* iOSKepolWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B005D45C2B6D456E002B66F8 /* iOSKepolWrapper.swift */; };
+		B005D4612B70B5F6002B66F8 /* iOSKepolListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B005D4602B70B5F6002B66F8 /* iOSKepolListener.swift */; };
+		B005D4652B70BF4C002B66F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		B02404712B70BFBA008C1AB7 /* KepolSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B005D45E2B6D4B11002B66F8 /* KepolSdk.xcframework */; };
+		B02404722B70BFBA008C1AB7 /* KepolSdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B005D45E2B6D4B11002B66F8 /* KepolSdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA4673A78C4715F82782BB61A2CD40AC /* iOSKepolWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B851CEA73F021A1C51023E84C73B578 /* iOSKepolWrapper-dummy.m */; };
+		E92A855A2D80B0DF0013441B243910EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93E5FE5339F624281A0C15DB367CC0FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE53445C66351A3E6CAFD2EEC866598D;
+			remoteInfo = "Pods-iOSKepolWrapper_Example";
+		};
+		BF68AB819152895B769D3AA9D2B08EFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 255AF30653A426C94A8588668BBDEAA3;
+			remoteInfo = iOSKepolWrapper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B02404732B70BFBA008C1AB7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B02404722B70BFBA008C1AB7 /* KepolSdk.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		06452F62098505B875A8F98D53174075 /* iOSKepolWrapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iOSKepolWrapper.modulemap; sourceTree = "<group>"; };
+		088188ED1670AEC3157CA904688ABA1D /* Pods-iOSKepolWrapper_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iOSKepolWrapper_Tests-umbrella.h"; sourceTree = "<group>"; };
+		1048236B85871F58C6D142224961E973 /* Pods-iOSKepolWrapper_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-iOSKepolWrapper_Tests"; path = Pods_iOSKepolWrapper_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17F55295EB6A59064E96831CFC2DEBBE /* Pods-iOSKepolWrapper_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOSKepolWrapper_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		1E60A476077A50AEFB4D7FD984CA4ABE /* Pods-iOSKepolWrapper_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOSKepolWrapper_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		2959BCF995D8F707F47CFECF1D3BDD30 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		29CD45B7127E56B26C549B779E0294C1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		31A2E5B6424A52AA94F426B3FDBD8B28 /* Pods-iOSKepolWrapper_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iOSKepolWrapper_Example.modulemap"; sourceTree = "<group>"; };
+		348978917DF3AA3861D724880990C2C0 /* iOSKepolWrapper-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "iOSKepolWrapper-Info.plist"; sourceTree = "<group>"; };
+		3B851CEA73F021A1C51023E84C73B578 /* iOSKepolWrapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSKepolWrapper-dummy.m"; sourceTree = "<group>"; };
+		4C4E1CA7B2355943A093630844A2E2F0 /* Pods-iOSKepolWrapper_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOSKepolWrapper_Example-frameworks.sh"; sourceTree = "<group>"; };
+		5D11A59C51EAD555B7C8B8B07BF9FF20 /* iOSKepolWrapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSKepolWrapper-prefix.pch"; sourceTree = "<group>"; };
+		5D407EE231ADEBC0F4F765880F00B97B /* Pods-iOSKepolWrapper_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOSKepolWrapper_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		67487DBC2D08435EAA8631B47DF181C7 /* Pods-iOSKepolWrapper_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOSKepolWrapper_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		67E9CFC8C64C138FBF41FD75CBA8C717 /* Pods-iOSKepolWrapper_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iOSKepolWrapper_Example-umbrella.h"; sourceTree = "<group>"; };
+		6873324803DCF3F168CD5F883F6838C6 /* Pods-iOSKepolWrapper_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iOSKepolWrapper_Tests.modulemap"; sourceTree = "<group>"; };
+		6D81B111B4C85DA0D01AC9C75D2900B4 /* iOSKepolWrapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSKepolWrapper.debug.xcconfig; sourceTree = "<group>"; };
+		724FBE0A7A25EE694B1F1BF6AB88DF96 /* iOSKepolWrapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSKepolWrapper-umbrella.h"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		76109213DCB03DB8F75078F35C187C7B /* Pods-iOSKepolWrapper_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOSKepolWrapper_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8F3AD285D9973C83462B7C04EFA9183F /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = iOSKepolWrapper/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ADFE04A71758178928578AC19D02704C /* Pods-iOSKepolWrapper_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOSKepolWrapper_Tests-Info.plist"; sourceTree = "<group>"; };
+		B005D45C2B6D456E002B66F8 /* iOSKepolWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSKepolWrapper.swift; sourceTree = "<group>"; };
+		B005D45E2B6D4B11002B66F8 /* KepolSdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = KepolSdk.xcframework; sourceTree = "<group>"; };
+		B005D4602B70B5F6002B66F8 /* iOSKepolListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSKepolListener.swift; sourceTree = "<group>"; };
+		B30EBCA064109940E4E1E4E49D05BAB3 /* Pods_iOSKepolWrapper_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSKepolWrapper_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B95FA1653A906B532C477B91B3278E71 /* Pods-iOSKepolWrapper_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOSKepolWrapper_Tests-dummy.m"; sourceTree = "<group>"; };
+		C64ED13C858D307ABB1798E9C070A9DC /* Pods-iOSKepolWrapper_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOSKepolWrapper_Example-dummy.m"; sourceTree = "<group>"; };
+		CEBC549307AE6D167A4757E76AF5451F /* iOSKepolWrapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSKepolWrapper.release.xcconfig; sourceTree = "<group>"; };
+		DFE7A4C7173D4AEDEE5DA65D162E0A3A /* Pods-iOSKepolWrapper_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOSKepolWrapper_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E81772048CBAA28CA90AEB93C93F3AEB /* Pods-iOSKepolWrapper_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOSKepolWrapper_Example.release.xcconfig"; sourceTree = "<group>"; };
+		EA6B9B0E81C2D79E37C2106F5D76E12C /* iOSKepolWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSKepolWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F54F40CE7C0BEF85A16CC2BBF217A869 /* Pods-iOSKepolWrapper_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOSKepolWrapper_Example-Info.plist"; sourceTree = "<group>"; };
+		F60A01F90398E9644B7AC33433D06E9F /* Pods-iOSKepolWrapper_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOSKepolWrapper_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FAD28CF0368213FF716F7E11069C10E8 /* iOSKepolWrapper.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = iOSKepolWrapper.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1AF6D878C49C5B752D14E92EDCC8C488 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B02404712B70BFBA008C1AB7 /* KepolSdk.xcframework in Frameworks */,
+				8206CB39CE46A3C370C82DC38F65666E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F8C327D97A5B448B7C381C7E9A4987E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E92A855A2D80B0DF0013441B243910EF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A588A7D3BA19A797C0A6343AA0C68199 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B005D4652B70BF4C002B66F8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B005D45E2B6D4B11002B66F8 /* KepolSdk.xcframework */,
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		73728699915981D7AAB220E000BB108C /* Pods-iOSKepolWrapper_Example */ = {
+			isa = PBXGroup;
+			children = (
+				31A2E5B6424A52AA94F426B3FDBD8B28 /* Pods-iOSKepolWrapper_Example.modulemap */,
+				76109213DCB03DB8F75078F35C187C7B /* Pods-iOSKepolWrapper_Example-acknowledgements.markdown */,
+				17F55295EB6A59064E96831CFC2DEBBE /* Pods-iOSKepolWrapper_Example-acknowledgements.plist */,
+				C64ED13C858D307ABB1798E9C070A9DC /* Pods-iOSKepolWrapper_Example-dummy.m */,
+				4C4E1CA7B2355943A093630844A2E2F0 /* Pods-iOSKepolWrapper_Example-frameworks.sh */,
+				F54F40CE7C0BEF85A16CC2BBF217A869 /* Pods-iOSKepolWrapper_Example-Info.plist */,
+				67E9CFC8C64C138FBF41FD75CBA8C717 /* Pods-iOSKepolWrapper_Example-umbrella.h */,
+				67487DBC2D08435EAA8631B47DF181C7 /* Pods-iOSKepolWrapper_Example.debug.xcconfig */,
+				E81772048CBAA28CA90AEB93C93F3AEB /* Pods-iOSKepolWrapper_Example.release.xcconfig */,
+			);
+			name = "Pods-iOSKepolWrapper_Example";
+			path = "Target Support Files/Pods-iOSKepolWrapper_Example";
+			sourceTree = "<group>";
+		};
+		7CC1F023223082C4688BBC251FA18E55 /* iOSKepolWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				B005D45B2B6D44FA002B66F8 /* Classes */,
+				8F3AD285D9973C83462B7C04EFA9183F /* ReplaceMe.swift */,
+				C3EA9107FE8B0B6000A44E9A8A8E8FC4 /* Pod */,
+				D34D0F751359DA2DE27A3AB9B5B4C270 /* Support Files */,
+			);
+			name = iOSKepolWrapper;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		933EDB746AC03E5495338768F6641DD8 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				73728699915981D7AAB220E000BB108C /* Pods-iOSKepolWrapper_Example */,
+				E393CA9A447F94D3F2D27BA2DB019AA2 /* Pods-iOSKepolWrapper_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		9D4C3345982DC15B57C0927F00308953 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7CC1F023223082C4688BBC251FA18E55 /* iOSKepolWrapper */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		B005D45B2B6D44FA002B66F8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B005D45C2B6D456E002B66F8 /* iOSKepolWrapper.swift */,
+				B005D4602B70B5F6002B66F8 /* iOSKepolListener.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C3EA9107FE8B0B6000A44E9A8A8E8FC4 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				FAD28CF0368213FF716F7E11069C10E8 /* iOSKepolWrapper.podspec */,
+				29CD45B7127E56B26C549B779E0294C1 /* LICENSE */,
+				2959BCF995D8F707F47CFECF1D3BDD30 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				9D4C3345982DC15B57C0927F00308953 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				E618FD0FCF82704BD5CBE32106E30A72 /* Products */,
+				933EDB746AC03E5495338768F6641DD8 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D34D0F751359DA2DE27A3AB9B5B4C270 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				06452F62098505B875A8F98D53174075 /* iOSKepolWrapper.modulemap */,
+				3B851CEA73F021A1C51023E84C73B578 /* iOSKepolWrapper-dummy.m */,
+				348978917DF3AA3861D724880990C2C0 /* iOSKepolWrapper-Info.plist */,
+				5D11A59C51EAD555B7C8B8B07BF9FF20 /* iOSKepolWrapper-prefix.pch */,
+				724FBE0A7A25EE694B1F1BF6AB88DF96 /* iOSKepolWrapper-umbrella.h */,
+				6D81B111B4C85DA0D01AC9C75D2900B4 /* iOSKepolWrapper.debug.xcconfig */,
+				CEBC549307AE6D167A4757E76AF5451F /* iOSKepolWrapper.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/iOSKepolWrapper";
+			sourceTree = "<group>";
+		};
+		E393CA9A447F94D3F2D27BA2DB019AA2 /* Pods-iOSKepolWrapper_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6873324803DCF3F168CD5F883F6838C6 /* Pods-iOSKepolWrapper_Tests.modulemap */,
+				F60A01F90398E9644B7AC33433D06E9F /* Pods-iOSKepolWrapper_Tests-acknowledgements.markdown */,
+				5D407EE231ADEBC0F4F765880F00B97B /* Pods-iOSKepolWrapper_Tests-acknowledgements.plist */,
+				B95FA1653A906B532C477B91B3278E71 /* Pods-iOSKepolWrapper_Tests-dummy.m */,
+				ADFE04A71758178928578AC19D02704C /* Pods-iOSKepolWrapper_Tests-Info.plist */,
+				088188ED1670AEC3157CA904688ABA1D /* Pods-iOSKepolWrapper_Tests-umbrella.h */,
+				1E60A476077A50AEFB4D7FD984CA4ABE /* Pods-iOSKepolWrapper_Tests.debug.xcconfig */,
+				DFE7A4C7173D4AEDEE5DA65D162E0A3A /* Pods-iOSKepolWrapper_Tests.release.xcconfig */,
+			);
+			name = "Pods-iOSKepolWrapper_Tests";
+			path = "Target Support Files/Pods-iOSKepolWrapper_Tests";
+			sourceTree = "<group>";
+		};
+		E618FD0FCF82704BD5CBE32106E30A72 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA6B9B0E81C2D79E37C2106F5D76E12C /* iOSKepolWrapper.framework */,
+				B30EBCA064109940E4E1E4E49D05BAB3 /* Pods_iOSKepolWrapper_Example.framework */,
+				1048236B85871F58C6D142224961E973 /* Pods-iOSKepolWrapper_Tests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		20987911B0DB34624DD24A1B1B85C03F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EC1B0E8285827641E39C803C9446E68 /* iOSKepolWrapper-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96F5F10BC58317829B7853FAA053A488 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D5561454F15E7D7DD0C2B93C93FFD32 /* Pods-iOSKepolWrapper_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCF93F1DD8649B30BDF026F134455CCF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B00628186A5F028968B2AC7D3E3F22 /* Pods-iOSKepolWrapper_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		255AF30653A426C94A8588668BBDEAA3 /* iOSKepolWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DFD23C0192774562E72650E28B228AC /* Build configuration list for PBXNativeTarget "iOSKepolWrapper" */;
+			buildPhases = (
+				20987911B0DB34624DD24A1B1B85C03F /* Headers */,
+				4E067E5F13F1F6BB9D825A8DDB3521DC /* Sources */,
+				1AF6D878C49C5B752D14E92EDCC8C488 /* Frameworks */,
+				302AC7DB468471640FA063877B716EBB /* Resources */,
+				B02404732B70BFBA008C1AB7 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSKepolWrapper;
+			productName = iOSKepolWrapper;
+			productReference = EA6B9B0E81C2D79E37C2106F5D76E12C /* iOSKepolWrapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A9FF638F5F220E4880D504E0A6EAEDBF /* Pods-iOSKepolWrapper_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82BDDE0FC521BD17882F8621323402F4 /* Build configuration list for PBXNativeTarget "Pods-iOSKepolWrapper_Tests" */;
+			buildPhases = (
+				CCF93F1DD8649B30BDF026F134455CCF /* Headers */,
+				458298A2D48113B21A96F4FB6D67D095 /* Sources */,
+				2F8C327D97A5B448B7C381C7E9A4987E /* Frameworks */,
+				81617D3E6C159D692359D91ADC8CEFFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A7D02B2470BC0E6063F487E8A2E5C91 /* PBXTargetDependency */,
+			);
+			name = "Pods-iOSKepolWrapper_Tests";
+			productName = Pods_iOSKepolWrapper_Tests;
+			productReference = 1048236B85871F58C6D142224961E973 /* Pods-iOSKepolWrapper_Tests */;
+			productType = "com.apple.product-type.framework";
+		};
+		CE53445C66351A3E6CAFD2EEC866598D /* Pods-iOSKepolWrapper_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2973EE184F0AEDEE31DC361DB1F96CF /* Build configuration list for PBXNativeTarget "Pods-iOSKepolWrapper_Example" */;
+			buildPhases = (
+				96F5F10BC58317829B7853FAA053A488 /* Headers */,
+				C557E1DF6BD336F4855F7A25BEC9BB2A /* Sources */,
+				A588A7D3BA19A797C0A6343AA0C68199 /* Frameworks */,
+				28BBA88C46E52FAA32974F6DA1C0F788 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE76BCC7F6458E5F393170D821ADAE61 /* PBXTargetDependency */,
+			);
+			name = "Pods-iOSKepolWrapper_Example";
+			productName = Pods_iOSKepolWrapper_Example;
+			productReference = B30EBCA064109940E4E1E4E49D05BAB3 /* Pods_iOSKepolWrapper_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = E618FD0FCF82704BD5CBE32106E30A72 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				255AF30653A426C94A8588668BBDEAA3 /* iOSKepolWrapper */,
+				CE53445C66351A3E6CAFD2EEC866598D /* Pods-iOSKepolWrapper_Example */,
+				A9FF638F5F220E4880D504E0A6EAEDBF /* Pods-iOSKepolWrapper_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28BBA88C46E52FAA32974F6DA1C0F788 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		302AC7DB468471640FA063877B716EBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81617D3E6C159D692359D91ADC8CEFFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		458298A2D48113B21A96F4FB6D67D095 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FD3C4B19845205A59F1DD7AC1AD78BA /* Pods-iOSKepolWrapper_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E067E5F13F1F6BB9D825A8DDB3521DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B005D45D2B6D456E002B66F8 /* iOSKepolWrapper.swift in Sources */,
+				B005D4612B70B5F6002B66F8 /* iOSKepolListener.swift in Sources */,
+				CA4673A78C4715F82782BB61A2CD40AC /* iOSKepolWrapper-dummy.m in Sources */,
+				17A9CAAB307E9ABC6CB9C973B3CE99E3 /* ReplaceMe.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C557E1DF6BD336F4855F7A25BEC9BB2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4145407A21467030457EA4C0687EC704 /* Pods-iOSKepolWrapper_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A7D02B2470BC0E6063F487E8A2E5C91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-iOSKepolWrapper_Example";
+			target = CE53445C66351A3E6CAFD2EEC866598D /* Pods-iOSKepolWrapper_Example */;
+			targetProxy = 93E5FE5339F624281A0C15DB367CC0FA /* PBXContainerItemProxy */;
+		};
+		AE76BCC7F6458E5F393170D821ADAE61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = iOSKepolWrapper;
+			target = 255AF30653A426C94A8588668BBDEAA3 /* iOSKepolWrapper */;
+			targetProxy = BF68AB819152895B769D3AA9D2B08EFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2E72D0E26471C47CD8A5D5898FD14D7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFE7A4C7173D4AEDEE5DA65D162E0A3A /* Pods-iOSKepolWrapper_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOSKepolWrapper_Tests/Pods-iOSKepolWrapper_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOSKepolWrapper_Tests/Pods-iOSKepolWrapper_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		46D3F5CC1AD318DA174CED79E17EA25A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEBC549307AE6D167A4757E76AF5451F /* iOSKepolWrapper.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4YB66B2RJL;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/iOSKepolWrapper/iOSKepolWrapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/iOSKepolWrapper/iOSKepolWrapper-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/iOSKepolWrapper/iOSKepolWrapper.modulemap";
+				PRODUCT_MODULE_NAME = iOSKepolWrapper;
+				PRODUCT_NAME = iOSKepolWrapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4FED6FC0CDEA0EAFF048A38B0A421CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D81B111B4C85DA0D01AC9C75D2900B4 /* iOSKepolWrapper.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4YB66B2RJL;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/iOSKepolWrapper/iOSKepolWrapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/iOSKepolWrapper/iOSKepolWrapper-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/iOSKepolWrapper/iOSKepolWrapper.modulemap";
+				PRODUCT_MODULE_NAME = iOSKepolWrapper;
+				PRODUCT_NAME = iOSKepolWrapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7180C6753D5D6CB41D61EEF7EC31DCDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E81772048CBAA28CA90AEB93C93F3AEB /* Pods-iOSKepolWrapper_Example.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOSKepolWrapper_Example/Pods-iOSKepolWrapper_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOSKepolWrapper_Example/Pods-iOSKepolWrapper_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		A982093360112DD79D2DC9A7FCBA65C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67487DBC2D08435EAA8631B47DF181C7 /* Pods-iOSKepolWrapper_Example.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOSKepolWrapper_Example/Pods-iOSKepolWrapper_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOSKepolWrapper_Example/Pods-iOSKepolWrapper_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B08EB2636EB1AF85ABB28C6B2E6AF6A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E60A476077A50AEFB4D7FD984CA4ABE /* Pods-iOSKepolWrapper_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOSKepolWrapper_Tests/Pods-iOSKepolWrapper_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOSKepolWrapper_Tests/Pods-iOSKepolWrapper_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0DFD23C0192774562E72650E28B228AC /* Build configuration list for PBXNativeTarget "iOSKepolWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FED6FC0CDEA0EAFF048A38B0A421CB8 /* Debug */,
+				46D3F5CC1AD318DA174CED79E17EA25A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
+				7EE7A78859F657F6BEFC651185B43192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82BDDE0FC521BD17882F8621323402F4 /* Build configuration list for PBXNativeTarget "Pods-iOSKepolWrapper_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B08EB2636EB1AF85ABB28C6B2E6AF6A0 /* Debug */,
+				2E72D0E26471C47CD8A5D5898FD14D7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2973EE184F0AEDEE31DC361DB1F96CF /* Build configuration list for PBXNativeTarget "Pods-iOSKepolWrapper_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A982093360112DD79D2DC9A7FCBA65C1 /* Debug */,
+				7180C6753D5D6CB41D61EEF7EC31DCDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

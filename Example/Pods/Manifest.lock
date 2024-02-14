@@ -1,0 +1,16 @@
+PODS:
+  - iOSKepolWrapper (0.1.0)
+
+DEPENDENCIES:
+  - iOSKepolWrapper (from `../`)
+
+EXTERNAL SOURCES:
+  iOSKepolWrapper:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  iOSKepolWrapper: 237c90bbdc1f12a2c3366ac129024dcc833bbef9
+
+PODFILE CHECKSUM: 1ad26e2c91ecbc941d420a7d025bebe30005a89e
+
+COCOAPODS: 1.14.3
