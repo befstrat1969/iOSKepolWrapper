@@ -8,16 +8,14 @@
 import Foundation
 import KepolSdk
 
-@objc
-public class KepolWrapper:NSObject{
+@objc public class iOSKepolWrapper:NSObject{
     
 
-    
     public var listener:iOSKepolListener?
     var kepolApi:IKepolAPI
 
     
-    public override init(){
+    @objc public override init(){
         kepolApi = KepolSdk.GetKepolAPI()
         super.init()
         kepolApi.OnKepolLockerSearchFound = onLockerSearchFound(_:)
@@ -26,25 +24,25 @@ public class KepolWrapper:NSObject{
     }
     
     
-    public func setAuthInfo(token:String,tenant:String){
+    @objc public func setAuthInfo(token:String,tenant:String){
         kepolApi.SetToken(token)
     }
     
     
-    public func SearchLocker()->Bool{
+    @objc public func SearchLocker()->Bool{
         
         return kepolApi.FindLocker(20)
     }
     
-    func onLockerSearchFound(_ data: [KepolLockerModel]){
+    @objc func onLockerSearchFound(_ data: [KepolLockerModel]){
         listener?.OnKepolLockerSearchFound()
     }
     
-    func onKepolSearchFinished(_ data: [KepolLockerModel]){
+    @objc func onKepolSearchFinished(_ data: [KepolLockerModel]){
         listener?.OnKepolLockerSearchFound()
     }
     
-    func onLockerSearchFailed(_ actionFailed: ProblemDetails){
+    @objc func onLockerSearchFailed(_ actionFailed: ProblemDetails){
         listener?.OnKepolLockerSearchFailed(actionFailed.Title)
     }
     

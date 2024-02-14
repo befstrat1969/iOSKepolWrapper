@@ -12,7 +12,7 @@ import iOSKepolWrapper
 
 class ViewController: UIViewController {
     
-    let kepol = KepolWrapper()
+    let kepol = iOSKepolWrapper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
