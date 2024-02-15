@@ -19,6 +19,7 @@
 		B005D4652B70BF4C002B66F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		B02404712B70BFBA008C1AB7 /* KepolSdk.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B005D45E2B6D4B11002B66F8 /* KepolSdk.xcframework */; };
 		B02404722B70BFBA008C1AB7 /* KepolSdk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B005D45E2B6D4B11002B66F8 /* KepolSdk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B092A8A52B7DF61B001C3E0F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B092A8A42B7DF61B001C3E0F /* Test.swift */; };
 		CA4673A78C4715F82782BB61A2CD40AC /* iOSKepolWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B851CEA73F021A1C51023E84C73B578 /* iOSKepolWrapper-dummy.m */; };
 		E92A855A2D80B0DF0013441B243910EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		B005D45C2B6D456E002B66F8 /* iOSKepolWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSKepolWrapper.swift; sourceTree = "<group>"; };
 		B005D45E2B6D4B11002B66F8 /* KepolSdk.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = KepolSdk.xcframework; sourceTree = "<group>"; };
 		B005D4602B70B5F6002B66F8 /* iOSKepolListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSKepolListener.swift; sourceTree = "<group>"; };
+		B092A8A42B7DF61B001C3E0F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		B30EBCA064109940E4E1E4E49D05BAB3 /* Pods_iOSKepolWrapper_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSKepolWrapper_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95FA1653A906B532C477B91B3278E71 /* Pods-iOSKepolWrapper_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOSKepolWrapper_Tests-dummy.m"; sourceTree = "<group>"; };
 		C64ED13C858D307ABB1798E9C070A9DC /* Pods-iOSKepolWrapper_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOSKepolWrapper_Example-dummy.m"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				B005D45B2B6D44FA002B66F8 /* Classes */,
 				8F3AD285D9973C83462B7C04EFA9183F /* ReplaceMe.swift */,
+				B092A8A42B7DF61B001C3E0F /* Test.swift */,
 				C3EA9107FE8B0B6000A44E9A8A8E8FC4 /* Pod */,
 				D34D0F751359DA2DE27A3AB9B5B4C270 /* Support Files */,
 			);
@@ -411,6 +414,7 @@
 			files = (
 				B005D45D2B6D456E002B66F8 /* iOSKepolWrapper.swift in Sources */,
 				B005D4612B70B5F6002B66F8 /* iOSKepolListener.swift in Sources */,
+				B092A8A52B7DF61B001C3E0F /* Test.swift in Sources */,
 				CA4673A78C4715F82782BB61A2CD40AC /* iOSKepolWrapper-dummy.m in Sources */,
 				17A9CAAB307E9ABC6CB9C973B3CE99E3 /* ReplaceMe.swift in Sources */,
 			);

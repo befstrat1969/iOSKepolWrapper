@@ -13,11 +13,13 @@ import iOSKepolWrapper
 class ViewController: UIViewController {
     
     let kepol = iOSKepolWrapper()
+    let t = Test()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         kepol.listener = self
+        let n = t.testName()
         
     
         // Do any additional setup after loading the view, typically from a nib.
