@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'iOSKepolWrapper'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.summary          = 'iOSKepolWrapper for the KepolSdk'
  
 
@@ -37,7 +37,8 @@ Pod::Spec.new do |s|
   # }
   s.static_framework = true
   #s.public_header_files = 'iOSKepolWrapper/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  #s.frameworks = 'KepolSdk'
+  s.vendored_frameworks = 'KepolSdk.xcframework'
+  #s.dependency 'KepolSdk', :path => 'Users/vasilisefstratiadis/Documents/Projects/iOSKepolWrapper/Example/Pods/KepolSdk.xcframework'
   # git token: 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
 end

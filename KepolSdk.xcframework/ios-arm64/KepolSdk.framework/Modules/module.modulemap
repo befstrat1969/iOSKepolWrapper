@@ -1,0 +1,4 @@
+framework module KepolSdk {
+  header "KepolSdk-Swift.h"
+  requires objc
+}
