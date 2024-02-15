@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'iOSKepolWrapper'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'iOSKepolWrapper for the KepolSdk'
  
 
@@ -35,8 +35,8 @@ Pod::Spec.new do |s|
   # s.resource_bundles = {
   #   'iOSKepolWrapper' => ['iOSKepolWrapper/Assets/*.png']
   # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.static_framework = true
+  #s.public_header_files = 'iOSKepolWrapper/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
   # git token: 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

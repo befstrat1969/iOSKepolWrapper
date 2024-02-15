@@ -10,7 +10,5 @@
 #endif
 #endif
 
-
 FOUNDATION_EXPORT double iOSKepolWrapperVersionNumber;
 FOUNDATION_EXPORT const unsigned char iOSKepolWrapperVersionString[];
-

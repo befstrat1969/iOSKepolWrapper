@@ -8,8 +8,8 @@
 import Foundation
 import KepolSdk
 
-public protocol iOSKepolListener{
-    func OnKepolLockerSearchFound()
-    func OnKepolLockerSearchFailed(_ actionFailed: String)
+@objc public protocol iOSKepolListener{
+    @objc func OnKepolLockerSearchFound()
+    @objc func OnKepolLockerSearchFailed(_ actionFailed: String)
     
 }

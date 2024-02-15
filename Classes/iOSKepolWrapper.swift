@@ -8,7 +8,7 @@
 import Foundation
 import KepolSdk
 
-@objc public class iOSKepolWrapper:NSObject{
+@objcMembers public class iOSKepolWrapper:NSObject{
     
 
     public var listener:iOSKepolListener?
